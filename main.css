@@ -1,1 +1,5 @@
 
+main { }
+section { }
+a { color: #009dd9; text-decoration: underline; }
+a:hover { text-decoration: none; }
