@@ -26,7 +26,7 @@
 			<h1>Flying squirrel</h1>
 		</header>
 		<section>
-		<p>Flying squirrels (scientifically known as Pteromyini or Petauristini) are a tribe of 44 species of squirrels in the family Sciuridae. They are not capable of flight in the same way as birds or bats but are able to glide from one tree to another with the aid of a patagium, a furry, parachute-like membrane that stretches from wrist to ankle. Their long tail provides stability in flight. Anatomically they are very similar to other squirrels but have a number of adaptations to suit their life style; their limb bones are longer and their hand, foot bones and distal vertebrae are shorter. While flying they are able to steer and exert control over their glide path with their limbs and tail.</p>
+		<p id="intro">Flying squirrels (scientifically known as Pteromyini or Petauristini) are a tribe of 44 species of squirrels in the family Sciuridae. They are not capable of flight in the same way as birds or bats but are able to glide from one tree to another with the aid of a patagium, a furry, parachute-like membrane that stretches from wrist to ankle. Their long tail provides stability in flight. Anatomically they are very similar to other squirrels but have a number of adaptations to suit their life style; their limb bones are longer and their hand, foot bones and distal vertebrae are shorter. While flying they are able to steer and exert control over their glide path with their limbs and tail.</p>
 
 		<p>Molecular studies have shown that flying squirrels are monophyletic and originated some 18–20 million years ago. Most are nocturnal and omnivorous, eating fruit, seeds, buds, flowers, insects, gastropods, spiders, fungi, bird's eggs and tree sap. The young are born in a nest and are at first naked and helpless. They are cared for by their mother and by five weeks are able to practice gliding skills so that by ten weeks they are ready to leave the nest.</p>
 		</section>
@@ -48,6 +48,12 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </main>
+    <script>
+        document.getElementById("intro").addEventListener("click", function() {
+            console.log("You clicked the Intro Paragraph");
+        }, false);
+            
+    </script> 
     <script src="javascripts/scale.fix.js"></script>
     
   </body>
