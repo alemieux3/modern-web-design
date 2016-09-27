@@ -120,12 +120,7 @@ footer {
 	section { padding-left: 1em; padding-right: 1em;}
 }
 /* Mobile landscape */
-@media screen and (max-width: 568px) {
+@media screen and (min-width: 320px) and (max-width: 568px) {
 	main { width: 100%;}
 	section { padding-left: 1em; padding-right: 1em;}
 }
-@media screen and (min-width: 768px) {
-	main { width: 100%;}
-	section { padding-left: 2em; padding-right: 2em;}	
-}
-
