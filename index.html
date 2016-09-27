@@ -3,10 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Modern-web-design by alemieux3</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width">
+    <title>Modern-web-design by alemieux3</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -22,11 +26,14 @@
     		
     		
     	</nav>
-      <header>
+    <div class="banner-graphic">
+      
+    </div>
+    <header class="header">
 			<h1>Flying squirrel</h1>
 		</header>
 		<section>
-		<p id="intro">Flying squirrels (scientifically known as Pteromyini or Petauristini) are a tribe of 44 species of squirrels in the family Sciuridae. They are not capable of flight in the same way as birds or bats but are able to glide from one tree to another with the aid of a patagium, a furry, parachute-like membrane that stretches from wrist to ankle. Their long tail provides stability in flight. Anatomically they are very similar to other squirrels but have a number of adaptations to suit their life style; their limb bones are longer and their hand, foot bones and distal vertebrae are shorter. While flying they are able to steer and exert control over their glide path with their limbs and tail.</p>
+		<p>Flying squirrels (scientifically known as Pteromyini or Petauristini) are a tribe of 44 species of squirrels in the family Sciuridae. They are not capable of flight in the same way as birds or bats but are able to glide from one tree to another with the aid of a patagium, a furry, parachute-like membrane that stretches from wrist to ankle. Their long tail provides stability in flight. Anatomically they are very similar to other squirrels but have a number of adaptations to suit their life style; their limb bones are longer and their hand, foot bones and distal vertebrae are shorter. While flying they are able to steer and exert control over their glide path with their limbs and tail.</p>
 
 		<p>Molecular studies have shown that flying squirrels are monophyletic and originated some 18–20 million years ago. Most are nocturnal and omnivorous, eating fruit, seeds, buds, flowers, insects, gastropods, spiders, fungi, bird's eggs and tree sap. The young are born in a nest and are at first naked and helpless. They are cared for by their mother and by five weeks are able to practice gliding skills so that by ten weeks they are ready to leave the nest.</p>
 		</section>
@@ -43,18 +50,36 @@
 		<p>Several hypotheses have attempted to explain the evolution of gliding in flying squirrels.[11] One possible explanation is related to energy efficiency and foraging.[12][13] Gliding is an energetically efficient way to progress from one tree to another while foraging, as opposed to climbing down trees and maneuvering on the ground floor or executing dangerous leaps in the air.[12] By gliding at high speeds, flying squirrels can rummage through a greater area of forest more quickly than tree squirrels. Flying squirrels can glide long distances by increasing their aerial speed and increasing their lift.[13] Other hypotheses state that the mechanism evolved to avoid nearby predators and prevent injuries. If a dangerous situation arises on a specific tree, flying squirrels can glide to another, and thereby typically escape the previous danger.[13][14] Furthermore, take-off and landing procedures during leaps, implemented for safety purposes, may explain the gliding mechanism. While leaps at high speeds are important to escape danger, the high-force impact of landing on a new tree could be detrimental to a squirrel’s health.[13] Yet the gliding mechanism of flying squirrels involves structures and techniques during flight that allow for great stability and control. If a leap is miscalculated, a flying squirrel may easily steer back onto the original course by using its gliding ability.[13] A flying squirrel also creates a large glide angle when approaching its target tree, decreasing its velocity due to an increase in air resistance and allowing all four limbs to absorb the impact of the target.[13][15]</p>
 		</section>
 
-      <footer>
+       <footer>
         <p>This project is maintained by <a href="https://github.com/alemieux3">alemieux3</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </main>
+
+    <div class="fs-right">
+
+    </div>
+    <div class="fs-left">
+
+    </div>
     <script>
-        document.getElementById("intro").addEventListener("click", function() {
-            console.log("You clicked the Intro Paragraph");
-        }, false);
-            
+      var $header = $('.header'),
+          $banner = $('.banner-graphic'),
+          $fsRight = $('.fs-right'),
+          $fsLeft = $('.fs-left');
+      var tween = TweenLite.from($header, 1.6, {
+        opacity: 0,
+        ease: Power1.easeInOut
+      });
+      $banner.hover(
+          function() {
+            TweenLite.to($(this), .25, {scale: 1.07});
+          },
+          function() {
+            TweenLite.to($(this), .25, {scale: 1});
+          }
+      );
     </script> 
-    <script src="javascripts/scale.fix.js"></script>
     
   </body>
 </html>
