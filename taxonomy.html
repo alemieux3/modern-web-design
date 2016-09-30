@@ -16,21 +16,28 @@
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style>
+
+    </style>
   </head>
   <body>
     <main>
-        <nav role="navigation">
-            <ul>
-                <li><a href="./index.html">About</a></li>
-                <li><a href="./taxonomy.html">Taxonomy</a></li>
-                <li><a href="./habits.html">Habits</a></li>
-            </ul>
-            
-            
-        </nav>
-    <header class="header">
+        <section class="section section--menu" id="Prospero">
+            <div class="banner-graphic"></div>
+            <nav class="menu menu--prospero" role="navigation">
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="./index.html" class="menu__link">About</a></li>
+                    <li class="menu__item menu__item--current"><a href="./taxonomy.html" class="menu__link">Taxonomy</a></li>
+                    <li class="menu__item"><a href="./habits.html" class="menu__link">Habits</a></li>
+                </ul>
+            </nav>
+        </section>
+        <header class="header">
             <h1>Taxonomy</h1>
         </header>
+        <div class="anim-area">
+            <img src="images/squirrel-on-black.jpg" alt="Furry Squirrel" class="squirrel" />
+        </div>
 		<section>
 		<p>The largest of the species is the woolly flying squirrel (Eupetaurus cinereus). The two species of the genus Glaucomys (Glaucomys sabrinus and Glaucomys volans) are native to North America, and the Siberian flying squirrel is native to parts of northern Europe (Pteromys volans).</p>
 
@@ -203,6 +210,37 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>	
         </main>
+        <script src="javascripts/main.js"></script>
+        <script src="javascripts/classie.js"></script>
+        <script src="javascripts/clipboard.min.js"></script>
+        <script>
+        (function() {
+            [].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
+                var menuItems = menu.querySelectorAll('.menu__link'),
+                    setCurrent = function(ev) {
+                        ev.preventDefault();
+                        var goTo = this.getAttribute('href');
+                        setTimeout(function() {
+                            window.location = goTo;
+                        },300);
+                        var item = ev.target.parentNode; // li
+
+                        // return if already current
+                        if (classie.has(item, 'menu__item--current')) {
+                            return false;
+                        }
+                        // remove current
+                        classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+                        // set current
+                        classie.add(item, 'menu__item--current');
+                    };
+
+                [].slice.call(menuItems).forEach(function(el) {
+                    el.addEventListener('click', setCurrent);
+                });
+            });
+        })(window);
+        </script>
 	</body>
 
 </html>

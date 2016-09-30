@@ -1,5 +1,6 @@
 /* Normalize first */
 @import 'normalize.css';
+@import 'font-awesome.css';
 
 /* Color Scheme 
 
@@ -39,36 +40,85 @@ section {
 	padding-left: 5em;
 	padding-right: 5em;
 }
-nav { 
-	width: 99%;
-	height: 80px;
-	background-color: #fff;
-	border: 1px solid #fff;
-	margin-bottom: 1em;
+.menu {
+    line-height: 1;
+    margin: 0 auto 3em;
 }
-nav ul { 
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap; 
-	justify-content: center;
+.menu__list {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-nav ul li {
-	float: left;
-	width: 33.3%;
-	height: 90px;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 0.11em;
+.menu__item {
+    display: block;
+    margin: 1em 0;
 }
-nav ul li a {
-	display: inline-block;
-	color: #3558B1;
-	text-decoration: none;
-	padding: 1em;
-	transition: color .5s ease-in;
+
+.menu__link {
+    font-size: 1.05em;
+    font-weight: bold;
+    display: block;
+    padding: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-nav ul li a:hover {
-	color: #7EA2FE;
+.menu__link:hover,
+.menu__link:focus {
+    outline: none;
+}
+.menu--prospero .menu__link {
+    position: relative;
+    display: block;
+    margin: 0 1.5em;
+    padding: 0.75em 0;
+    text-align: center;
+    color: #b5b5b5;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.menu--prospero .menu__link:hover,
+.menu--prospero .menu__link:focus {
+    color: #929292;
+}
+
+.menu--prospero .menu__item--current .menu__link {
+    color: #d94f5c;
+}
+
+.menu--prospero .menu__link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #d94f5c;
+    -webkit-transform: scale3d(0,1,1);
+    transform: scale3d(0,1,1);
+    -webkit-transition: -webkit-transform 0.1s;
+    transition: transform 0.1s
+}
+
+.menu--prospero .menu__item--current .menu__link::before {
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 .header { text-align: center; 
 	margin-bottom: 1.5em; 
@@ -79,16 +129,8 @@ nav ul li a:hover {
 	height: 184px;
 	background: transparent url(../images/fs-right.png) top center no-repeat;
 	position: absolute;
-	top: -400px;
-	left: -9999px;
-}
-.fs-left {
-	width: 185px;
-	height: 158px;
-	background: transparent url(../images/fs-left.png) top center no-repeat;
-	position: absolute;
-	top: -400px;
-	right: 3099px;
+	top: 1300px;
+	left: 200px;
 }
 h1, h2, h3, h4, p, li, a { font-family: 'Slabo 27px', serif; }
 h1 { font-size: 4.236em; }
@@ -98,14 +140,33 @@ h3 { font-size: 1.618em; }
 p { font-size: 1em; line-height: 1.6; }
 a { color: #3558B1; text-decoration: underline; }
 .banner-graphic {
-	width: 260px;
-	height: 260px;
-	margin: 0 auto;
-	background: #fed97e url(../images/flying-squirrel-pilot.jpg) top center no-repeat;
+	float: right;
+	width: 80px;
+	height: 80px;
+	margin-top: 1em;
+	background: #fed97e url(../images/flying-squirrel-pilot-sm.png) top center no-repeat;
 	border-radius: 260px;
 	cursor: pointer;
 }
 a:hover { text-decoration: none; }
+.anim-area {
+	width: 100%;
+	height: 305px;
+	background-color: black;
+	margin: 0;
+	padding: 2em;
+}
+.squirrel {
+	animation: squirrel-glide 3s ease alternate infinite;
+}
+@keyframes squirrel-glide {
+	0% { transform: translateX(0);}
+	100% { transform: translateX(95%);}
+}
+video { 
+	width: 100% !important;
+	height: auto !important;
+}
 footer {
 	width: 100%;
 	background-color: #FFE198;
@@ -114,13 +175,18 @@ footer {
 	text-align: center;
 }
 /* Media Queries */
-@media screen and (max-width: 375px) {
+
+/* Mobile devices Portrait -- Anything less than 414px */
+@media screen and (max-width: 414px) {
 	html { background: #000;}
 	main { width: 100%;}
 	section { padding-left: 1em; padding-right: 1em;}
 }
-/* Mobile landscape */
-@media screen and (min-width: 320px) and (max-width: 568px) {
-	main { width: 100%;}
-	section { padding-left: 1em; padding-right: 1em;}
+/* Tablet landscape -- Anything between 414px and 768px */
+@media screen and (min-width: 414px) and (max-width: 768px) {
+	section { padding-left: 2em; padding-right: 2em;}
+}
+/* Desktop -- Anything above 768px */
+@media screen and (min-width: 769px) {
+
 }
